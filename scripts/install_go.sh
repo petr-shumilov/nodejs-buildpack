@@ -7,7 +7,7 @@ export GoInstallDir="/tmp/go$GO_VERSION"
 mkdir -p $GoInstallDir
 
 if [ ! -f $GoInstallDir/go/bin/go ]; then
-  GO_MD5="0571886e9b9ba07773b542a11e9859a41"
+  GO_MD5="0571886e9b9ba07773b542a11e9859a4"
   URL=https://buildpacks.cloudfoundry.org/dependencies/go/go${GO_VERSION}.linux-amd64-${GO_MD5:0:8}.tar.gz
 
   echo "-----> Download go ${GO_VERSION}"
