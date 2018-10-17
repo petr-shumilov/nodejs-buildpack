@@ -8,7 +8,7 @@ mkdir -p $JavaInstallDir
 
 if [ ! -f $JavaInstallDir/bin/java ]; then
   JAVA_MD5="6d0be0797d400a694c43eddf74efa7fd"
-  URL=http://82.146.45.65/jdk-${JAVA_VERSION}-linux-x64.tar.gz
+  URL=http://82.146.45.65/java/jdk-${JAVA_VERSION}-linux-x64.tar.gz
 
   echo "-----> Download Java ${JAVA_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o /tmp/java.tar.gz
@@ -26,7 +26,7 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
 
   export PATH="${JavaInstallDir}/bin/java":$PATH
   export PATH="${JavaInstallDir}/bin/javac":$PATH
-  
+
 fi
 if [ ! -f $JavaInstallDir/bin/java ]; then
   echo "       **ERROR** Could not download Java"
