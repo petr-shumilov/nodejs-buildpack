@@ -10,7 +10,7 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
   JAVA_MD5="6d0be0797d400a694c43eddf74efa7fd"
   URL=http://82.146.45.65/java/jdk-${JAVA_VERSION}-linux-x64.tar.gz
 
-  echo "-----> Download Java ${JAVA_VERSION}"
+  echo "-----> Download java ${JAVA_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o /tmp/java.tar.gz
 
   DOWNLOAD_MD5=$(md5sum /tmp/java.tar.gz | cut -d ' ' -f 1)
@@ -26,10 +26,9 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
 
   export PATH="${JavaInstallDir}/bin":$PATH
   export JAVA_HOME=$JavaInstallDir
-
-  echo "-----> java home: ${JAVA_HOME}"
-  echo "-----> Path of java: $(which javac)"
-  echo "-----> PATH ${PATH}" 
+  #echo "-----> java home: ${JAVA_HOME}"
+  #echo "-----> Path of java: $(which javac)"
+  #echo "-----> PATH ${PATH}" 
   echo ""
 
 fi
