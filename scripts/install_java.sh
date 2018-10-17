@@ -26,7 +26,11 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
 
   export PATH="${JavaInstallDir}/bin/java":$PATH
   export PATH="${JavaInstallDir}/bin/javac":$PATH
+  export JAVA_HOME=$JavaInstallDir
+
+  echo "-----> Path of java: $(which javac)"
   echo "-----> PATH ${PATH}" 
+  echo ""
 
 fi
 if [ ! -f $JavaInstallDir/bin/java ]; then
