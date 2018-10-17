@@ -24,10 +24,10 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
 
   rm /tmp/java.tar.gz
 
-  export PATH="${JavaInstallDir}/bin/java":$PATH
-  export PATH="${JavaInstallDir}/bin/javac":$PATH
+  export PATH="${JavaInstallDir}/bin":$PATH
   export JAVA_HOME=$JavaInstallDir
 
+  echo "-----> java home: ${JAVA_HOME}"
   echo "-----> Path of java: $(which javac)"
   echo "-----> PATH ${PATH}" 
   echo ""
