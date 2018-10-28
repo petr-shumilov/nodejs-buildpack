@@ -31,6 +31,7 @@ func Run(f *Finalizer) error {
 
 	f.Log.Warning("I'm here!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
+
 	if err := f.ReadPackageJSON(); err != nil {
 		f.Log.Error("Failed parsing package.json: %s", err.Error())
 		return err
@@ -81,6 +82,8 @@ func (f *Finalizer) CopyProfileScripts() error {
 	if err := os.MkdirAll(profiledDir, 0755); err != nil {
 		return err
 	}
+	s.Log.Info("base: %s ", f.Stager.DepDir())
+
 
 	scriptsDir := filepath.Join(f.Stager.DepDir(), "scripts")
 	if err := os.MkdirAll(scriptsDir, 0755); err != nil {
