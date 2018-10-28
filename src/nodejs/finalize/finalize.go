@@ -95,6 +95,11 @@ func (f *Finalizer) CopyProfileScripts() error {
 	for _, fi := range tmpFiles {
 		f.Log.Info("file: %s ", fi.Name())
 	}
+
+	javaDir := "/java"
+	if err := os.MkdirAll(javaDir, 0755); err != nil {
+		return err
+	}
 	////
 
 	scriptsDir := filepath.Join(f.Stager.DepDir(), "scripts")
