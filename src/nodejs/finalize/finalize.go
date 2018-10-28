@@ -82,7 +82,7 @@ func (f *Finalizer) CopyProfileScripts() error {
 	if err := os.MkdirAll(profiledDir, 0755); err != nil {
 		return err
 	}
-	s.Log.Info("base: %s ", f.Stager.DepDir())
+	f.Log.Info("base: %s ", f.Stager.DepDir())
 
 
 	scriptsDir := filepath.Join(f.Stager.DepDir(), "scripts")
