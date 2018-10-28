@@ -23,4 +23,9 @@ echo "-----> Deps dir: ${DEPS_DIR}"
 #echo "kek" > /profile.d/test
 $output_dir/finalize "$BUILD_DIR" "$CACHE_DIR" "$DEPS_DIR" "$DEPS_IDX" "$PROFILE_DIR"
 
-cp -R /tmp/java/* $DEPS_DIR/0/java
+java_path=$DEPS_DIR/0/java
+
+cp -R /tmp/java/* $java_path
+export PATH="${java_path}/bin":$PATH
+export JAVA_HOME=$java_path
+
