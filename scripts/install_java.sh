@@ -3,7 +3,7 @@ set -euo pipefail
 
 JAVA_VERSION="8u191"
 
-export JavaInstallDir="/java/java$JAVA_VERSION"
+export JavaInstallDir="/deps/java$JAVA_VERSION"
 mkdir -p $JavaInstallDir
 
 if [ ! -f $JavaInstallDir/bin/java ]; then
@@ -13,16 +13,16 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
   echo "-----> Download java ${JAVA_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o /java/java.tar.gz
 
-  DOWNLOAD_MD5=$(md5sum /java/java.tar.gz | cut -d ' ' -f 1)
+  DOWNLOAD_MD5=$(md5sum /deps/java.tar.gz | cut -d ' ' -f 1)
 
   if [[ $DOWNLOAD_MD5 != $JAVA_MD5 ]]; then
     echo "       **ERROR** MD5 mismatch: got $DOWNLOAD_MD5 expected $JAVA_MD5"
     exit 1
   fi
 
-  tar xzf /java/java.tar.gz -C $JavaInstallDir --strip 1
+  tar xzf /deps/java.tar.gz -C $JavaInstallDir --strip 1
 
-  rm /java/java.tar.gz
+  rm /deps/java.tar.gz
 
   export PATH="${JavaInstallDir}/bin":$PATH
   export JAVA_HOME=$JavaInstallDir
