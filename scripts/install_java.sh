@@ -7,7 +7,7 @@ echo $(ls -la /)
 echo $(id)
 
 
-export JavaInstallDir="/app/java$JAVA_VERSION"
+export JavaInstallDir="/home/vcap/app/java$JAVA_VERSION"
 mkdir -p $JavaInstallDir
 
 if [ ! -f $JavaInstallDir/bin/java ]; then
@@ -17,16 +17,16 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
   echo "-----> Download java ${JAVA_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o /java/java.tar.gz
 
-  DOWNLOAD_MD5=$(md5sum /app/java.tar.gz | cut -d ' ' -f 1)
+  DOWNLOAD_MD5=$(md5sum /home/vcap/app/java.tar.gz | cut -d ' ' -f 1)
 
   if [[ $DOWNLOAD_MD5 != $JAVA_MD5 ]]; then
     echo "       **ERROR** MD5 mismatch: got $DOWNLOAD_MD5 expected $JAVA_MD5"
     exit 1
   fi
 
-  tar xzf /app/java.tar.gz -C $JavaInstallDir --strip 1
+  tar xzf /home/vcap/app/java.tar.gz -C $JavaInstallDir --strip 1
 
-  rm /app/java.tar.gz
+  rm /home/vcap/app/java.tar.gz
 
   export PATH="${JavaInstallDir}/bin":$PATH
   export JAVA_HOME=$JavaInstallDir
