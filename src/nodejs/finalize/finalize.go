@@ -96,7 +96,7 @@ func (f *Finalizer) CopyProfileScripts() error {
 		f.Log.Info("file: %s ", fi.Name())
 	}
 
-	javaDir := filepath.Join(profiledDir, "java")
+	javaDir := filepath.Join(f.Stager.DepDir(), "java")
 	if err := os.MkdirAll(javaDir, 0755); err != nil {
 		return err
 	}
