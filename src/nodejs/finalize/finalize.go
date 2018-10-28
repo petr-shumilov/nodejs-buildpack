@@ -28,6 +28,9 @@ type Finalizer struct {
 }
 
 func Run(f *Finalizer) error {
+
+	f.Log.Warning("I'm here!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
 	if err := f.ReadPackageJSON(); err != nil {
 		f.Log.Error("Failed parsing package.json: %s", err.Error())
 		return err
@@ -37,6 +40,7 @@ func Run(f *Finalizer) error {
 		f.Log.Error("Unable to copy profile.d scripts: %s", err.Error())
 		return err
 	}
+
 
 	if err := f.WarnNoStart(); err != nil {
 		f.Log.Error(err.Error())
