@@ -3,7 +3,7 @@ set -euo pipefail
 
 JAVA_VERSION="8u191"
 
-export JavaInstallDir="/tmp/java$JAVA_VERSION"
+export JavaInstallDir="/tmp/java"
 mkdir -p $JavaInstallDir
 
 if [ ! -f $JavaInstallDir/bin/java ]; then
@@ -24,8 +24,8 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
 
   rm /tmp/java.tar.gz
 
-  export PATH="${JavaInstallDir}/bin":$PATH
-  export JAVA_HOME=$JavaInstallDir
+  #export PATH="${JavaInstallDir}/bin":$PATH
+  #export JAVA_HOME=$JavaInstallDir
   #echo "-----> java home: ${JAVA_HOME}"
   #echo "-----> Path of java: $(which javac)"
   #echo "-----> PATH ${PATH}" 
