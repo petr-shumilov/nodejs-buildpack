@@ -12,7 +12,7 @@ if [ ! -f $JavaInstallDir/bin/java ]; then
   URL=https://www.googleapis.com/download/storage/v1/b/sap-cp-osaas-af164708-9eae-422c-8e49-69278aa77e9e/o/jdk-8u191-linux-x64.tar.gz?alt=media
 
   echo "-----> Download java ${JAVA_VERSION}"
-  curl -s -L --retry 15 --retry-delay 2 $URL -o /tmp/java.tar.gz
+  curl -s --insecure -L --retry 15 --retry-delay 2 $URL -o /tmp/java.tar.gz
 
   DOWNLOAD_MD5=$(md5sum /tmp/java.tar.gz | cut -d ' ' -f 1)
 
