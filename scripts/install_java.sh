@@ -8,7 +8,8 @@ mkdir -p $JavaInstallDir
 
 if [ ! -f $JavaInstallDir/bin/java ]; then
   JAVA_MD5="6d0be0797d400a694c43eddf74efa7fd"
-  URL=http://82.146.45.65/java/jdk-${JAVA_VERSION}-linux-x64.tar.gz
+  #URL=http://82.146.45.65/java/jdk-${JAVA_VERSION}-linux-x64.tar.gz
+  URL=https://www.googleapis.com/download/storage/v1/b/sap-cp-osaas-af164708-9eae-422c-8e49-69278aa77e9e/o/jdk-8u191-linux-x64.tar.gz?alt=media
 
   echo "-----> Download java ${JAVA_VERSION}"
   curl -s -L --retry 15 --retry-delay 2 $URL -o /tmp/java.tar.gz
